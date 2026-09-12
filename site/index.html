@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Davi Araújo — Landing pages e sites que vendem</title>
+<meta name="description" content="Web designer. Crio landing pages, sites e identidade visual pensados para transformar visita em cliente.">
+<meta name="theme-color" content="#000000">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Davi Araújo — Landing pages e sites que vendem">
+<meta property="og:description" content="Landing pages, sites e identidade visual pensados para converter.">
+<meta property="og:image" content="assets/banner.jpg">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23000'/%3E%3Cpath d='M9 8h6a8 8 0 0 1 0 16H9z' fill='none' stroke='%2335D6FF' stroke-width='2.6'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<!-- Só esconde para animar se o JS estiver vivo. Sem isso, uma falha
+     de script deixaria a página inteira invisível. -->
+<script>document.documentElement.classList.add("js-anim");</script>
+</head>
+<body>
+
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="topo">
+  <div class="nav__in">
+    <a class="nav__marca" href="#topo">Davi&nbsp;Araújo</a>
+
+    <nav class="nav__links" aria-label="Seções">
+      <a href="#servicos">Serviços</a>
+      <a href="#processo">Como funciona</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+
+    <a class="btn btn--cta nav__btn" href="https://wa.me/5599985160035?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+      Pedir orçamento
+    </a>
+
+    <button class="nav__menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-movel">
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav__movel" id="nav-movel" aria-label="Seções">
+    <a href="#servicos">Serviços</a>
+    <a href="#processo">Como funciona</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#duvidas">Dúvidas</a>
+    <a class="nav__movel-cta" href="https://wa.me/5599985160035?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">Pedir orçamento</a>
+  </nav>
+</header>
+
+<main id="conteudo">
+
+<!-- ================= HERÓI ================= -->
+<section class="heroi">
+  <div class="heroi__img"></div>
+  <div class="heroi__fade"></div>
+
+  <div class="heroi__in">
+    <p class="eyebrow rv">Web designer · Landing pages</p>
+    <h1 class="rv" style="--d:1">
+      Landing pages que fazem<br>o seu produto <em>vender</em>.
+    </h1>
+    <p class="heroi__sub rv" style="--d:2">
+      Crio páginas, sites e identidade visual pensados para uma coisa só:
+      transformar visita em cliente. Do primeiro rascunho ao site no ar.
+    </p>
+    <div class="heroi__acoes rv" style="--d:3">
+      <a class="btn btn--cta" href="https://wa.me/5599985160035?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">Pedir orçamento</a>
+      <a class="btn btn--fantasma" href="#projetos">Ver projetos</a>
+    </div>
+  </div>
+
+  <div class="dobra"></div>
+</section>
+
+<!-- ================= PROVA SOCIAL ================= -->
+<section class="secao secao--prova">
+  <p class="prova__lb rv">Marcas que já confiaram no trabalho</p>
+  <!-- TODO: trocar cada slot pelo logo real (SVG de preferência) -->
+  <ul class="prova__logos rv" style="--d:1">
+    <li>Cliente 01</li>
+    <li>Cliente 02</li>
+    <li>Cliente 03</li>
+    <li>Cliente 04</li>
+    <li>Cliente 05</li>
+    <li>Cliente 06</li>
+  </ul>
+</section>
+
+<!-- ================= SERVIÇOS ================= -->
+<section class="secao" id="servicos">
+  <header class="secao__cab">
+    <p class="eyebrow rv">Serviços</p>
+    <h2 class="rv" style="--d:1">O que eu entrego</h2>
+    <p class="secao__sub rv" style="--d:2">
+      Quatro frentes que resolvem a presença digital do seu produto, juntas ou separadas.
+    </p>
+  </header>
+
+  <div class="grade grade--4">
+    <article class="cartao rv">
+      <span class="cartao__ic" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M2.5 9h19"/><path d="M6 6.75h.01M8.5 6.75h.01"/>
+        </svg>
+      </span>
+      <h3>Site institucional</h3>
+      <p>Site sob medida, rápido e responsivo, feito para apresentar seu trabalho e captar contato.</p>
+    </article>
+
+    <article class="cartao rv" style="--d:1">
+      <span class="cartao__ic" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="2.5" width="16" height="19" rx="2.5"/><path d="M8 8h8M8 12h8M8 16h4"/>
+        </svg>
+      </span>
+      <h3>Landing page</h3>
+      <p>Uma página com um objetivo só: converter. Estrutura, copy e design trabalhando na mesma direção.</p>
+    </article>
+
+    <article class="cartao rv" style="--d:2">
+      <span class="cartao__ic" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.2"/><path d="M12 3v5.8M12 15.2V21M3 12h5.8M15.2 12H21"/>
+        </svg>
+      </span>
+      <h3>Identidade visual</h3>
+      <p>Logo, paleta, tipografia e manual de marca. Um sistema que se mantém de pé em qualquer peça.</p>
+    </article>
+
+    <article class="cartao rv" style="--d:3">
+      <span class="cartao__ic" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 10.5v3a1.5 1.5 0 0 0 1.5 1.5H7l5.5 4V5L7 9H4.5A1.5 1.5 0 0 0 3 10.5Z"/><path d="M17 9.5a4 4 0 0 1 0 5"/><path d="M19.5 7a7.5 7.5 0 0 1 0 10"/>
+        </svg>
+      </span>
+      <h3>Criativos para anúncio</h3>
+      <p>Peças pensadas para Meta e Google Ads, no formato certo e prontas para subir na campanha.</p>
+    </article>
+  </div>
+</section>
+
+<div class="dobra dobra--secao"></div>
+
+<!-- ================= PROCESSO ================= -->
+<section class="secao" id="processo">
+  <header class="secao__cab">
+    <p class="eyebrow rv">Como funciona</p>
+    <h2 class="rv" style="--d:1">Do primeiro contato ao site no ar</h2>
+    <p class="secao__sub rv" style="--d:2">
+      Quatro etapas, nesta ordem. Você sabe onde o projeto está em cada uma delas.
+    </p>
+  </header>
+
+  <ol class="passos">
+    <li class="passo rv">
+      <span class="passo__n">01</span>
+      <h3>Conversa</h3>
+      <p>Me conta o produto, quem compra e qual o objetivo da página. Saio dessa conversa com o escopo e o prazo.</p>
+    </li>
+    <li class="passo rv" style="--d:1">
+      <span class="passo__n">02</span>
+      <h3>Estrutura e copy</h3>
+      <p>Defino a ordem das seções e o texto de cada uma antes de desenhar. É aqui que a conversão é decidida.</p>
+    </li>
+    <li class="passo rv" style="--d:2">
+      <span class="passo__n">03</span>
+      <h3>Design e desenvolvimento</h3>
+      <p>Layout, identidade e a página construída de verdade — responsiva e rápida no celular.</p>
+    </li>
+    <li class="passo rv" style="--d:3">
+      <span class="passo__n">04</span>
+      <h3>Publicação e ajustes</h3>
+      <p>Coloco no ar no seu domínio, testo em telas diferentes e ajusto o que você pedir na revisão.</p>
+    </li>
+  </ol>
+</section>
+
+<div class="dobra dobra--secao"></div>
+
+<!-- ================= SOBRE ================= -->
+<section class="secao secao--sobre" id="sobre">
+  <div class="sobre">
+    <div class="sobre__foto rv"></div>
+    <div class="sobre__tx">
+      <p class="eyebrow rv">Quem faz</p>
+      <h2 class="rv" style="--d:1">Prazer, Davi Araújo</h2>
+      <!-- TODO: trocar pelo seu texto real (tempo de experiência, formação, nichos) -->
+      <p class="rv" style="--d:2">
+        Sou web designer e trabalho com páginas de venda e identidade visual.
+        Meu foco não é fazer uma página bonita e parar por aí — é fazer uma página
+        que a pessoa entenda em cinco segundos e queira clicar.
+      </p>
+      <p class="rv" style="--d:3">
+        Já atendi clínicas, advogados, mentores e lançamentos de infoproduto.
+        Cada projeto começa entendendo quem compra, porque é isso que define
+        o que vai em cada dobra da página.
+      </p>
+      <a class="btn btn--fantasma rv" style="--d:4" href="https://www.behance.net/odavi_araujo" target="_blank" rel="noopener">Ver portfólio no Behance</a>
+    </div>
+  </div>
+</section>
+
+<div class="dobra dobra--secao"></div>
+
+<!-- ================= PROJETOS ================= -->
+<section class="secao" id="projetos">
+  <header class="secao__cab">
+    <p class="eyebrow rv">Projetos</p>
+    <h2 class="rv" style="--d:1">Trabalhos recentes</h2>
+    <p class="secao__sub rv" style="--d:2">
+      Uma amostra. O portfólio completo fica no Behance.
+    </p>
+  </header>
+
+  <!-- TODO: trocar cada .projeto__tela por <img src="assets/projeto-N.jpg" alt="..."> -->
+  <div class="grade grade--3">
+    <article class="projeto rv">
+      <div class="projeto__tela" aria-hidden="true"><span></span></div>
+      <h3>Harmonização facial</h3>
+      <p>Landing page · Clínica estética</p>
+    </article>
+    <article class="projeto rv" style="--d:1">
+      <div class="projeto__tela" aria-hidden="true"><span></span></div>
+      <h3>Advocacia para mulheres</h3>
+      <p>Landing page · Escritório jurídico</p>
+    </article>
+    <article class="projeto rv" style="--d:2">
+      <div class="projeto__tela" aria-hidden="true"><span></span></div>
+      <h3>Lançamento de infoproduto</h3>
+      <p>Página de vendas · Mentoria</p>
+    </article>
+    <article class="projeto rv" style="--d:3">
+      <div class="projeto__tela" aria-hidden="true"><span></span></div>
+      <h3>Consultório odontológico</h3>
+      <p>Site institucional</p>
+    </article>
+    <article class="projeto rv" style="--d:4">
+      <div class="projeto__tela" aria-hidden="true"><span></span></div>
+      <h3>Marca pessoal</h3>
+      <p>Identidade visual</p>
+    </article>
+    <article class="projeto rv" style="--d:5">
+      <div class="projeto__tela" aria-hidden="true"><span></span></div>
+      <h3>Campanha de tráfego</h3>
+      <p>Criativos · Meta Ads</p>
+    </article>
+  </div>
+</section>
+
+<div class="dobra dobra--secao"></div>
+
+<!-- ================= DÚVIDAS ================= -->
+<section class="secao secao--faq" id="duvidas">
+  <header class="secao__cab">
+    <p class="eyebrow rv">Dúvidas</p>
+    <h2 class="rv" style="--d:1">Perguntas que sempre chegam</h2>
+  </header>
+
+  <div class="faq rv" style="--d:2">
+    <details>
+      <summary>Quanto tempo leva para ficar pronto?</summary>
+      <p>Uma landing page leva de 5 a 10 dias úteis. Site institucional e identidade visual variam com o escopo — fecho o prazo junto com o orçamento, antes de começar.</p>
+    </details>
+    <details>
+      <summary>O texto da página é por sua conta?</summary>
+      <p>Sim. A estrutura e a copy fazem parte do projeto, porque são elas que decidem se a página converte. Se você já tiver o texto pronto, eu adapto.</p>
+    </details>
+    <details>
+      <summary>Como funciona o pagamento?</summary>
+      <p>Metade na aprovação do orçamento e metade na entrega. Combino a forma no WhatsApp junto com o escopo.</p>
+    </details>
+    <details>
+      <summary>Tenho direito a alterações?</summary>
+      <p>Sim. Cada projeto inclui uma rodada de ajustes depois da entrega. Mudanças de escopo entram como novo orçamento.</p>
+    </details>
+    <details>
+      <summary>Você publica a página no meu domínio?</summary>
+      <p>Publico. Se você ainda não tiver domínio e hospedagem, indico o que usar e ajudo na configuração.</p>
+    </details>
+    <details>
+      <summary>Preciso de landing page ou de site?</summary>
+      <p>Landing page se o objetivo é vender ou captar contato para uma oferta específica. Site se você precisa apresentar a empresa inteira. Na conversa a gente decide.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section class="fechamento">
+  <div class="fechamento__in rv">
+    <h2>Vamos tirar a sua página do papel?</h2>
+    <p>Me chama no WhatsApp e conta sobre o seu produto. Respondo com escopo e prazo.</p>
+    <a class="btn btn--cta btn--g" href="https://wa.me/5599985160035?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">Pedir orçamento</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= RODAPÉ ================= -->
+<footer class="rodape">
+  <div class="rodape__in">
+    <p class="rodape__marca">Davi Araújo</p>
+    <nav class="rodape__redes" aria-label="Redes">
+      <a href="https://wa.me/5599985160035" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.28-.1-.48-.15-.68.15s-.76.96-.94 1.16c-.17.2-.34.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.14-.14.3-.35.45-.53.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.2-.25-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.03 1.02-1.03 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.7.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34M12.05 21.8a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89"/></svg>
+      </a>
+      <a href="https://www.instagram.com/_odavi.araujo/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.05" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.behance.net/odavi_araujo" target="_blank" rel="noopener" aria-label="Behance">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6h5a2.5 2.5 0 0 1 0 5h-5zM2.5 11h5.5a2.75 2.75 0 0 1 0 5.5H2.5zM14 13.5h7a3.5 3.5 0 1 0-7 0 3.5 3.5 0 0 0 3.5 3.5c1.3 0 2.2-.5 2.8-1.3M15.5 7.5H20"/></svg>
+      </a>
+    </nav>
+    <p class="rodape__nota">Todos os direitos reservados © <span id="ano">2026</span> — DS DIGITAL</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

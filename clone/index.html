@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfólio</title>
+<meta name="description" content="Estrutura, páginas de venda e identidade visual.">
+<meta name="theme-color" content="#000000">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+
+<div class="noise" aria-hidden="true"></div>
+
+<a class="skip" href="#main">Pular para o conteúdo</a>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="top">
+  <div class="nav__in">
+    <a class="nav__logo" href="#top">LOGO</a>
+
+    <nav class="nav__menu" aria-label="Menu">
+      <a href="#top">HOME</a>
+      <a href="#portfolio">PORTFÓLIO</a>
+      <a href="#duvidas">DÚVIDAS</a>
+    </nav>
+
+    <a class="shiny" href="#contato"><span>Solicitar um orçamento</span>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.28-.1-.48-.15-.68.15s-.76.96-.94 1.16c-.17.2-.34.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.14-.14.3-.35.45-.53.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.2-.25-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.03 1.02-1.03 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.7.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34M12.05 21.8a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89"/></svg>
+    </a>
+
+    <button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mob">
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav__mob" id="menu-mob" aria-label="Menu">
+    <a href="#top">HOME</a>
+    <a href="#portfolio">PORTFÓLIO</a>
+    <a href="#duvidas">DÚVIDAS</a>
+    <a class="shiny" href="#contato"><span>Solicitar um orçamento</span></a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero__fallback" aria-hidden="true"></div>
+  <div class="hero__video" id="hero-video" aria-hidden="true"></div>
+  <div class="hero__veil"></div>
+
+  <div class="blur-bar" aria-hidden="true">
+    <div class="blur">
+      <div class="blur-1"></div><div class="blur-2"></div><div class="blur-3"></div>
+      <div class="blur-4"></div><div class="blur-5"></div><div class="blur-6"></div>
+    </div>
+  </div>
+
+  <div class="hero__in wrap">
+    <h1 class="rv">Seu título principal<br>ocupa duas linhas.</h1>
+    <p class="hero__sub rv" data-d="1">
+      Subtítulo de apoio explicando em duas ou três linhas o que a empresa faz,
+      para quem faz e qual resultado entrega. Substituir por texto próprio.
+    </p>
+    <div class="hero__btns rv" data-d="2">
+      <a class="shiny shiny--lg" href="#contato"><span>Solicitar um orçamento</span>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.28-.1-.48-.15-.68.15s-.76.96-.94 1.16c-.17.2-.34.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.14-.14.3-.35.45-.53.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.2-.25-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.03 1.02-1.03 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.7.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34M12.05 21.8a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89"/></svg>
+      </a>
+      <a class="btn-branco" href="#portfolio">VER PORTFÓLIO</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROVA SOCIAL ===================== -->
+<section class="sec sec--dark">
+  <div class="wrap centro">
+    <h2 class="rv">Título da seção de<br>prova social.</h2>
+    <p class="sec__sub rv" data-d="1">
+      Linha de apoio explicando o resultado que essas marcas tiveram. Substituir por texto próprio.
+    </p>
+  </div>
+
+  <div class="marquee-capsula rv" data-d="2" aria-label="Clientes">
+    <ul class="marquee__linha">
+      <li>LOGO 01</li><li>LOGO 02</li><li>LOGO 03</li>
+      <li>LOGO 04</li><li>LOGO 05</li><li>LOGO 06</li><li>LOGO 07</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== SERVIÇOS ===================== -->
+<section class="sec sec--dark" id="servicos">
+  <div class="wrap">
+    <div class="centro">
+      <p class="kicker rv">O QUE VOCÊ RECEBE</p>
+      <h2 class="rv sec__titulo" data-d="1">O que nós entregamos<br>aqui na empresa?</h2>
+    </div>
+
+    <article class="serv rv">
+      <div class="serv__tx">
+        <p class="serv__rotulo">WEBSITE</p>
+        <h3>Primeiro serviço</h3>
+        <p class="serv__desc">Descrição do serviço em duas ou três linhas, explicando o que está incluso e qual problema resolve. Substituir por texto próprio.</p>
+        <a class="link-seta" href="#contato">Solicitar um orçamento <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="serv__img" aria-hidden="true"><span>IMAGEM</span></div>
+    </article>
+
+    <article class="serv serv--inv rv">
+      <div class="serv__tx">
+        <p class="serv__rotulo">PÁGINAS</p>
+        <h3>Segundo serviço</h3>
+        <p class="serv__desc">Descrição do serviço em duas ou três linhas, explicando o que está incluso e qual problema resolve. Substituir por texto próprio.</p>
+        <a class="link-seta" href="#contato">Solicitar um orçamento <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="serv__img" aria-hidden="true"><span>IMAGEM</span></div>
+    </article>
+
+    <article class="serv rv">
+      <div class="serv__tx">
+        <p class="serv__rotulo">IDV COMPLETA</p>
+        <h3>Terceiro serviço</h3>
+        <p class="serv__desc">Descrição do serviço em duas ou três linhas, explicando o que está incluso e qual problema resolve. Substituir por texto próprio.</p>
+        <a class="link-seta" href="#contato">Solicitar um orçamento <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="serv__img" aria-hidden="true"><span>IMAGEM</span></div>
+    </article>
+
+    <article class="serv serv--inv rv">
+      <div class="serv__tx">
+        <p class="serv__rotulo">ANÚNCIOS</p>
+        <h3>Quarto serviço</h3>
+        <p class="serv__desc">Descrição do serviço em duas ou três linhas, explicando o que está incluso e qual problema resolve. Substituir por texto próprio.</p>
+        <a class="link-seta" href="#contato">Solicitar um orçamento <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="serv__img" aria-hidden="true"><span>IMAGEM</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== QUEM ESTÁ POR TRÁS ===================== -->
+<section class="expert" id="sobre">
+  <div class="expert__foto rv" aria-hidden="true"><span>FOTO</span></div>
+  <div class="expert__tx">
+    <p class="expert__kicker rv">Quem estará por trás do seu projeto?</p>
+    <h2 class="rv" data-d="1">Prazer,<br>seu nome aqui!</h2>
+    <p class="rv" data-d="2">Uma linha resumindo sua especialidade. Substituir por texto próprio.</p>
+    <p class="rv" data-d="3">Segundo parágrafo apresentando há quanto tempo você atua, com o quê, e para que tipo de cliente. Substituir por texto próprio.</p>
+    <p class="rv" data-d="4">Terceiro parágrafo com os projetos de que participou e o resultado que geraram. Substituir por texto próprio.</p>
+    <p class="rv" data-d="5">Quarto parágrafo dizendo qual é o seu foco hoje. Substituir por texto próprio.</p>
+  </div>
+</section>
+
+<!-- ===================== DEPOIMENTOS ===================== -->
+<section class="sec sec--dark sec--corte">
+  <div class="wrap centro">
+    <h2 class="rv">Título da seção<br>de depoimentos.</h2>
+    <p class="sec__sub rv" data-d="1">Linha de apoio da seção. Substituir por texto próprio.</p>
+  </div>
+</section>
+
+<section class="sec sec--light" id="depoimentos">
+  <div class="wrap">
+    <article class="depo rv">
+      <div class="depo__foto" aria-hidden="true"><span>FOTO</span></div>
+      <div class="depo__tx">
+        <h3>Nome do cliente</h3>
+        <p class="depo__cargo">Cargo ou empresa</p>
+        <p class="depo__fala">Depoimento do cliente em quatro ou cinco linhas, contando o problema que tinha antes, como foi o processo e qual resultado obteve depois. Substituir por depoimento real.</p>
+      </div>
+    </article>
+
+    <article class="depo depo--inv rv">
+      <div class="depo__foto" aria-hidden="true"><span>FOTO</span></div>
+      <div class="depo__tx">
+        <h3>Nome do cliente</h3>
+        <p class="depo__cargo">Cargo ou empresa</p>
+        <p class="depo__fala">Depoimento do cliente em quatro ou cinco linhas, contando o problema que tinha antes, como foi o processo e qual resultado obteve depois. Substituir por depoimento real.</p>
+      </div>
+    </article>
+
+    <article class="depo rv">
+      <div class="depo__foto" aria-hidden="true"><span>FOTO</span></div>
+      <div class="depo__tx">
+        <h3>Nome do cliente</h3>
+        <p class="depo__cargo">Cargo ou empresa</p>
+        <p class="depo__fala">Depoimento do cliente em quatro ou cinco linhas, contando o problema que tinha antes, como foi o processo e qual resultado obteve depois. Substituir por depoimento real.</p>
+      </div>
+    </article>
+
+    <article class="depo depo--inv rv">
+      <div class="depo__foto" aria-hidden="true"><span>FOTO</span></div>
+      <div class="depo__tx">
+        <h3>Nome do cliente</h3>
+        <p class="depo__cargo">Cargo ou empresa</p>
+        <p class="depo__fala">Depoimento do cliente em quatro ou cinco linhas, contando o problema que tinha antes, como foi o processo e qual resultado obteve depois. Substituir por depoimento real.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== PORTFÓLIO ===================== -->
+<section class="sec sec--dark" id="portfolio">
+  <div class="wrap centro">
+    <h2 class="rv">Título da seção<br>de portfólio.</h2>
+    <p class="sec__sub rv" data-d="1">Linha de apoio da seção. Substituir por texto próprio.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="grid-port">
+      <a class="proj rv" href="#"><div class="proj__sh" aria-hidden="true"><span>PROJETO 01</span></div></a>
+      <a class="proj rv" href="#"><div class="proj__sh" aria-hidden="true"><span>PROJETO 02</span></div></a>
+      <a class="proj rv" href="#"><div class="proj__sh" aria-hidden="true"><span>PROJETO 03</span></div></a>
+      <a class="proj rv" href="#"><div class="proj__sh" aria-hidden="true"><span>PROJETO 04</span></div></a>
+      <a class="proj rv" href="#"><div class="proj__sh" aria-hidden="true"><span>PROJETO 05</span></div></a>
+      <a class="proj rv" href="#"><div class="proj__sh" aria-hidden="true"><span>PROJETO 06</span></div></a>
+      <a class="proj rv" href="#"><div class="proj__sh" aria-hidden="true"><span>PROJETO 07</span></div></a>
+      <a class="proj rv" href="#"><div class="proj__sh" aria-hidden="true"><span>PROJETO 08</span></div></a>
+      <a class="proj rv" href="#"><div class="proj__sh" aria-hidden="true"><span>PROJETO 09</span></div></a>
+      <a class="proj rv" href="#"><div class="proj__sh" aria-hidden="true"><span>PROJETO 10</span></div></a>
+      <a class="proj rv" href="#"><div class="proj__sh" aria-hidden="true"><span>PROJETO 11</span></div></a>
+      <a class="proj rv" href="#"><div class="proj__sh" aria-hidden="true"><span>PROJETO 12</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta" id="contato">
+  <div class="wrap centro rv">
+    <h2>Chamada final da página.</h2>
+    <p class="sec__sub">Linha de apoio reforçando a oferta. Substituir por texto próprio.</p>
+    <a class="shiny shiny--lg" href="#"><span>Solicitar um orçamento</span>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.28-.1-.48-.15-.68.15s-.76.96-.94 1.16c-.17.2-.34.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.14-.14.3-.35.45-.53.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.2-.25-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.03 1.02-1.03 2.48s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.7.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.57-.34M12.05 21.8a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ===================== DÚVIDAS ===================== -->
+<section class="sec sec--dark" id="duvidas">
+  <div class="wrap wrap--estreito">
+    <div class="centro">
+      <h2 class="rv">Título da seção<br>de dúvidas.</h2>
+    </div>
+
+    <div class="faq rv" data-d="1">
+      <details>
+        <summary>Primeira pergunta frequente?</summary>
+        <div class="faq__corpo"><div><p>Resposta em duas ou três linhas. Substituir por conteúdo próprio.</p></div></div>
+      </details>
+      <details>
+        <summary>Segunda pergunta frequente?</summary>
+        <div class="faq__corpo"><div><p>Resposta em duas ou três linhas. Substituir por conteúdo próprio.</p></div></div>
+      </details>
+      <details>
+        <summary>Terceira pergunta frequente?</summary>
+        <div class="faq__corpo"><div><p>Resposta em duas ou três linhas. Substituir por conteúdo próprio.</p></div></div>
+      </details>
+      <details>
+        <summary>Quarta pergunta frequente?</summary>
+        <div class="faq__corpo"><div><p>Resposta em duas ou três linhas. Substituir por conteúdo próprio.</p></div></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== RODAPÉ ===================== -->
+<footer class="rodape">
+  <div class="wrap rodape__in">
+    <span class="nav__logo">LOGO</span>
+    <p>© <span id="ano">2026</span> — Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

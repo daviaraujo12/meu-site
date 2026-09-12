@@ -1,0 +1,11 @@
+# Configs locais do Claude Code
+.claude/settings.local.json
+
+# Sistema
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Dependências / build
+node_modules/

@@ -1,0 +1,591 @@
+/* ==================================================================
+   Réplica — orogelin.com.br/portfolio
+   Valores lidos do CSS do original (post-9138.css), não estimados.
+   ================================================================== */
+
+/* ---------- @property: sem isto o ângulo do conic não interpola ---------- */
+@property --gradient-angle        { syntax: "<angle>";      initial-value: 0deg; inherits: false; }
+@property --gradient-angle-offset { syntax: "<angle>";      initial-value: 0deg; inherits: false; }
+@property --gradient-percent      { syntax: "<percentage>"; initial-value: 5%;   inherits: false; }
+@property --gradient-shine        { syntax: "<color>";      initial-value: white; inherits: false; }
+
+:root {
+  --preto:     #000000;
+  --card:      #08111C;
+  --branco:    #FFFFFF;
+  --cinza:     #A1A1A1;
+  --cinza-esc: #333333;
+  --linha:     rgba(255, 255, 255, 0.14);
+  --borda-pil: #717171;
+
+  /* botão "shiny" — valores do original */
+  --shiny-bg:        #000000;
+  --shiny-bg-subtle: #1a1818;
+  --shiny-fg:        #ffffff;
+  --shiny-highlight: #9C4EFF;
+  --shiny-shine:     #ffffff;
+
+  --sans: "Manrope", system-ui, -apple-system, sans-serif;
+  --menu: "Sora", system-ui, sans-serif;
+
+  --cont: 1140px;
+  --nav-h: 88px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); }
+
+body {
+  background: var(--preto);
+  color: var(--branco);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.3;
+  /* `clip` e não `hidden`: com hidden o body vira container de rolagem
+     e o evento scroll para de chegar na window */
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+:focus-visible { outline: 2px solid var(--branco); outline-offset: 3px; border-radius: 4px; }
+
+.skip {
+  position: absolute; left: 12px; top: -60px; z-index: 10000;
+  padding: 10px 16px; border-radius: 8px;
+  background: var(--branco); color: #000; font-weight: 700;
+  transition: top 0.2s var(--ease);
+}
+.skip:focus { top: 12px; }
+
+.wrap { width: 100%; max-width: var(--cont); margin: 0 auto; padding: 0 24px; }
+.wrap--estreito { max-width: 860px; }
+.centro { text-align: center; }
+
+/* ==================================================================
+   NOISE — grão animado sobre a página inteira
+   Original: .noise { position:fixed; 100vw/100vh; opacity:.2;
+             background-image:url(ruido-animado.gif); pointer-events:none }
+   Aqui o grão é gerado por feTurbulence em SVG (data-URI) e movido em
+   passos — mesmo resultado sem carregar um GIF de fora.
+   ================================================================== */
+.noise {
+  position: fixed;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  z-index: 9999;
+  opacity: 0.2;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grao 0.6s steps(1) infinite;
+  will-change: transform;
+}
+@keyframes grao {
+  0%   { transform: translate(0, 0); }
+  10%  { transform: translate(-4%, -3%); }
+  20%  { transform: translate(-8%, 2%); }
+  30%  { transform: translate(3%, -6%); }
+  40%  { transform: translate(-2%, 6%); }
+  50%  { transform: translate(-8%, 3%); }
+  60%  { transform: translate(4%, 1%); }
+  70%  { transform: translate(-1%, -6%); }
+  80%  { transform: translate(-6%, 4%); }
+  90%  { transform: translate(2%, -3%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ==================================================================
+   BLUR PROGRESSIVO — 6 camadas, blur dobrando, máscaras deslocando 12,5%
+   Valores exatos do original.
+   ================================================================== */
+.blur { position: absolute; inset: 0; pointer-events: none; }
+.blur > div { position: absolute; inset: 0; }
+
+.blur-1 { z-index: 1; backdrop-filter: blur(0.25px); -webkit-backdrop-filter: blur(0.25px);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,    rgba(0,0,0,1) 12.5%, rgba(0,0,0,1) 25%,   rgba(0,0,0,0) 37.5%);
+          mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,    rgba(0,0,0,1) 12.5%, rgba(0,0,0,1) 25%,   rgba(0,0,0,0) 37.5%); }
+.blur-2 { z-index: 2; backdrop-filter: blur(0.5px);  -webkit-backdrop-filter: blur(0.5px);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 12.5%, rgba(0,0,0,1) 25%,   rgba(0,0,0,1) 37.5%, rgba(0,0,0,0) 50%);
+          mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 12.5%, rgba(0,0,0,1) 25%,   rgba(0,0,0,1) 37.5%, rgba(0,0,0,0) 50%); }
+.blur-3 { z-index: 3; backdrop-filter: blur(1px);    -webkit-backdrop-filter: blur(1px);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 25%,   rgba(0,0,0,1) 37.5%, rgba(0,0,0,1) 50%,   rgba(0,0,0,0) 62.5%);
+          mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 25%,   rgba(0,0,0,1) 37.5%, rgba(0,0,0,1) 50%,   rgba(0,0,0,0) 62.5%); }
+.blur-4 { z-index: 4; backdrop-filter: blur(2px);    -webkit-backdrop-filter: blur(2px);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 37.5%, rgba(0,0,0,1) 50%,   rgba(0,0,0,1) 62.5%, rgba(0,0,0,0) 75%);
+          mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 37.5%, rgba(0,0,0,1) 50%,   rgba(0,0,0,1) 62.5%, rgba(0,0,0,0) 75%); }
+.blur-5 { z-index: 5; backdrop-filter: blur(4px);    -webkit-backdrop-filter: blur(4px);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 50%,   rgba(0,0,0,1) 62.5%, rgba(0,0,0,1) 75%,   rgba(0,0,0,0) 87.5%);
+          mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 50%,   rgba(0,0,0,1) 62.5%, rgba(0,0,0,1) 75%,   rgba(0,0,0,0) 87.5%); }
+.blur-6 { z-index: 6; backdrop-filter: blur(8px);    -webkit-backdrop-filter: blur(8px);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 62.5%, rgba(0,0,0,1) 75%,   rgba(0,0,0,1) 87.5%, rgba(0,0,0,0) 100%);
+          mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 62.5%, rgba(0,0,0,1) 75%,   rgba(0,0,0,1) 87.5%, rgba(0,0,0,0) 100%); }
+
+/* barra de blur no rodapé do herói */
+.blur-bar {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 190px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* ==================================================================
+   TIPO
+   ================================================================== */
+h1 { font-size: clamp(38px, 5.4vw, 68px); font-weight: 700; line-height: 1.2; }
+h2 { font-size: clamp(34px, 4.8vw, 61px); font-weight: 400; line-height: 1.2; }
+/* títulos de card: 22px/600 no original, não os 32px que eu tinha posto */
+h3 { font-size: clamp(19px, 1.9vw, 22px); font-weight: 600; line-height: 1.25; }
+
+/* palavra destacada: o branco "preenche" conforme entra na tela */
+.selecionado {
+  background: linear-gradient(to right, #ffffff30 50%, #ffffff 50%);
+  background-size: 200%;
+  background-position: var(--bg-position, 0%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 1.1s var(--ease);
+}
+
+/* kicker: 15px/400 no original — vem acima da headline grande */
+.kicker {
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-align: center;
+  margin-bottom: 14px;
+}
+.sec__titulo { margin-bottom: 62px; }
+.sec__sub { margin-top: 20px; font-size: clamp(15px, 1.4vw, 17px); line-height: 1.6; color: var(--cinza); }
+
+/* ==================================================================
+   BOTÃO "SHINY" — luz percorrendo a borda
+   Estrutura do original: conic-gradient em border-box + fundo sólido
+   em padding-box; o ângulo do conic é animado por @property.
+   ================================================================== */
+.shiny {
+  --animacao: girarAngulo linear infinite;
+  --duracao: 3s;
+  --sombra: 2px;
+
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 15px 28px;
+  border: 1px solid transparent;
+  border-radius: 360px;
+  color: var(--shiny-fg);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  outline-offset: 4px;
+
+  background:
+    linear-gradient(var(--shiny-bg), var(--shiny-bg)) padding-box,
+    conic-gradient(
+      from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+      transparent,
+      var(--shiny-highlight) var(--gradient-percent),
+      var(--gradient-shine) calc(var(--gradient-percent) * 2),
+      var(--shiny-highlight) calc(var(--gradient-percent) * 3),
+      transparent calc(var(--gradient-percent) * 4)
+    ) border-box;
+  box-shadow: inset 0 0 0 1px var(--shiny-bg-subtle);
+
+  animation: var(--animacao);
+  animation-duration: var(--duracao);
+  transition: 800ms cubic-bezier(0.25, 1, 0.5, 1);
+  transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine;
+}
+@keyframes girarAngulo { to { --gradient-angle: 360deg; } }
+
+/* halo externo que acompanha a luz */
+.shiny::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: calc(var(--sombra) * -1);
+  border: inherit;
+  border-radius: inherit;
+  background: inherit;
+  filter: blur(var(--sombra));
+  opacity: 0.6;
+  pointer-events: none;
+}
+.shiny:hover, .shiny:focus-visible {
+  --gradient-percent: 20%;
+  --gradient-angle-offset: 95deg;
+  --gradient-shine: #c4a2ff;
+}
+.shiny svg { width: 16px; height: 16px; flex: none; }
+.shiny--lg { padding: 17px 34px; font-size: 15px; --sombra: 3px; }
+
+/* botão branco (VER PORTFÓLIO) — valores exatos do original */
+.btn-branco {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 30px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #000;
+  font-size: clamp(15px, 1.5vw, 18px);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0);
+  transition: background 0.3s var(--ease), color 0.3s var(--ease),
+              box-shadow 0.3s var(--ease), transform 0.26s var(--ease);
+}
+/* hover invertido: o branco vira preto com borda branca */
+.btn-branco:hover, .btn-branco:focus-visible {
+  background: transparent;
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.85);
+  transform: translateY(-2px);
+}
+
+.link-seta {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 22px; font-size: 15px; font-weight: 600;
+}
+.link-seta span { transition: transform 0.26s var(--ease); }
+.link-seta:hover span { transform: translateX(5px); }
+
+/* ==================================================================
+   NAV — backdrop-filter blur(20px), como no original
+   ================================================================== */
+.nav {
+  position: fixed; inset: 0 0 auto; z-index: 100;
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s, border-color 0.3s;
+}
+.nav.is-fixa {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom-color: var(--linha);
+}
+.nav__in {
+  max-width: var(--cont); height: var(--nav-h); margin: 0 auto;
+  padding: 0 24px; display: flex; align-items: center; gap: 30px;
+}
+.nav__logo { font-family: var(--menu); font-size: 19px; font-weight: 700; letter-spacing: 0.02em; }
+.nav__menu { display: flex; gap: 10px; margin: 0 auto; }
+.nav__menu a {
+  padding: 13px 20px;
+  font-family: var(--menu); font-size: 16px; font-weight: 700; line-height: 20px;
+  transition: opacity 0.22s;
+}
+.nav__menu a:hover { opacity: 0.62; }
+
+.burger {
+  display: none; margin-left: auto; width: 42px; height: 42px;
+  border-radius: 10px; border: 1px solid var(--linha);
+  background: rgba(255,255,255,0.04); cursor: pointer;
+  flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+}
+.burger span { width: 18px; height: 1.5px; background: var(--branco); border-radius: 2px; transition: transform 0.28s var(--ease); }
+.burger[aria-expanded="true"] span:first-child { transform: translateY(3.25px) rotate(45deg); }
+.burger[aria-expanded="true"] span:last-child  { transform: translateY(-3.25px) rotate(-45deg); }
+
+.nav__mob {
+  display: none; flex-direction: column; padding: 6px 24px 22px;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--linha);
+}
+.nav__mob a { padding: 15px 0; font-family: var(--menu); font-size: 16px; font-weight: 700; border-bottom: 1px solid var(--linha); }
+.nav__mob .shiny { margin-top: 16px; border-bottom: 0; justify-content: center; }
+.nav__mob.is-aberto { display: flex; }
+
+/* ==================================================================
+   HERO — vídeo de fundo (iframe YouTube, como no original)
+   ================================================================== */
+.hero {
+  position: relative;
+  min-height: min(100svh, 900px);
+  display: flex; align-items: center;
+  padding: calc(var(--nav-h) + 40px) 0 80px;
+  overflow: hidden;
+  background: var(--preto);
+}
+.hero__video {
+  position: absolute; inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+/* iframe e video têm proporção fixa: escalados para cobrir a área.
+   Uso 101vw/101% para matar a fresta de subpixel que aparecia na borda. */
+.hero__video iframe,
+.hero__video video {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 101vw; height: 56.82vw;          /* 16:9 medido pela largura */
+  min-height: 101%; min-width: 179.55vh;  /* 16:9 medido pela altura  */
+  transform: translate(-50%, -50%);
+  border: 0;
+  object-fit: cover;
+  pointer-events: none;
+}
+/* fundo de reserva: fica no ar até o vídeo confirmar que começou,
+   e continua lá se o vídeo for bloqueado ou removido */
+.hero__fallback {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(58% 44% at 22% 30%, rgba(255,255,255,0.07), transparent 62%),
+    radial-gradient(52% 42% at 78% 62%, rgba(255,255,255,0.05), transparent 64%),
+    #050505;
+  transition: opacity 0.9s var(--ease);
+}
+.hero.is-tocando .hero__fallback { opacity: 0; }
+.hero__veil {
+  position: absolute; inset: 0; z-index: 2;
+  background:
+    radial-gradient(78% 62% at 50% 45%, rgba(0,0,0,0.30), rgba(0,0,0,0.70) 74%),
+    linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 26%, transparent 66%, #000 100%);
+}
+.hero__in { position: relative; z-index: 6; text-align: center; }
+.hero__sub { max-width: 620px; margin: 26px auto 0; font-size: clamp(15px, 1.4vw, 16px); line-height: 1.62; color: var(--cinza); }
+.hero__btns { margin-top: 38px; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+
+/* ==================================================================
+   SEÇÕES
+   ================================================================== */
+.sec { position: relative; padding: 116px 0; }
+.sec--dark  { background: var(--preto); color: var(--branco); }
+.sec--light { background: var(--branco); color: var(--cinza-esc); }
+.sec--corte { padding-bottom: 76px; }
+
+/* ---------- esteira de logos: cápsula com blur(50px), valores do original ---------- */
+.marquee-capsula {
+  margin: 62px auto 0;
+  max-width: 1040px;
+  padding: 26px 0;
+  border-radius: 491.855px;
+  border: 1px solid var(--borda-pil);
+  background: rgba(0, 0, 0, 0.21);
+  box-shadow: 0 49.172px 30.733px 0 rgba(0, 0, 0, 0.20);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.marquee__linha { display: flex; gap: 18px; width: max-content; animation: correr 34s linear infinite; }
+.marquee-capsula:hover .marquee__linha { animation-play-state: paused; }
+.marquee__linha li {
+  flex: none; display: grid; place-items: center;
+  min-width: 180px; padding: 18px 30px;
+  border: 1px dashed var(--linha); border-radius: 12px;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.34);
+}
+@keyframes correr { to { transform: translateX(-50%); } }
+
+/* ---------- serviços ---------- */
+.serv {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+  padding: 44px; margin-bottom: 26px; border-radius: 20px; background: var(--card);
+}
+.serv--inv .serv__tx  { order: 2; }
+.serv--inv .serv__img { order: 1; }
+/* rótulo pequeno acima do título do card: WEBSITE / PÁGINAS / ... */
+.serv__rotulo {
+  margin-bottom: 12px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.16em;
+  color: var(--cinza);
+}
+.serv__desc { margin-top: 16px; font-size: 16px; line-height: 1.62; color: var(--cinza); }
+
+/* ==================================================================
+   QUEM ESTÁ POR TRÁS — foto sangrando à esquerda, texto à direita
+   Original: kicker 15px #858585, headline 53px/700, parágrafos 14px
+   ================================================================== */
+.expert {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 0;
+  background: var(--preto);
+  overflow: hidden;
+}
+.expert__foto {
+  position: relative;
+  display: grid; place-items: center;
+  min-height: 640px;
+  background:
+    radial-gradient(58% 50% at 30% 32%, rgba(255,255,255,0.10), transparent 64%),
+    #0d0d0d;
+  border-right: 1px solid var(--linha);
+}
+.expert__foto span {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.26);
+}
+.expert__tx { padding: 92px clamp(24px, 5vw, 78px); max-width: 720px; }
+.expert__kicker { font-size: 15px; color: #858585; margin-bottom: 14px; }
+.expert__tx h2 { font-size: clamp(32px, 4.2vw, 53px); font-weight: 700; line-height: 1.14; }
+.expert__tx p:not(.expert__kicker) {
+  margin-top: 16px; font-size: 14px; line-height: 1.7; color: var(--branco);
+}
+.serv__img {
+  display: grid; place-items: center; aspect-ratio: 4 / 3;
+  border-radius: 14px; border: 1px dashed var(--linha); background: rgba(255,255,255,0.02);
+}
+.serv__img span, .depo__foto span, .proj__sh span {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em;
+}
+.serv__img span { color: rgba(255,255,255,0.28); }
+
+/* ---------- depoimentos ---------- */
+.depo {
+  display: grid; grid-template-columns: 0.72fr 1fr; gap: 56px; align-items: center;
+  padding: 64px 0; border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.depo:last-child { border-bottom: 0; }
+.depo--inv .depo__foto { order: 2; }
+.depo--inv .depo__tx   { order: 1; }
+.depo__foto {
+  display: grid; place-items: center; aspect-ratio: 4 / 5;
+  border-radius: 16px; border: 1px dashed rgba(0,0,0,0.16); background: #F4F4F4;
+}
+.depo__foto span { color: rgba(0,0,0,0.28); }
+/* nomes dos depoimentos: 62px/600 no original */
+.depo__tx h3 { color: #000; font-size: clamp(32px, 5vw, 62px); font-weight: 600; line-height: 1.08; }
+.depo__cargo { margin-top: 6px; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; color: #7A7A7A; }
+.depo__fala { margin-top: 20px; font-size: 17px; line-height: 1.66; color: var(--cinza-esc); }
+
+/* ---------- portfólio ---------- */
+.grid-port { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.proj { display: block; }
+.proj__sh {
+  display: grid; place-items: center; aspect-ratio: 4 / 3;
+  border-radius: 14px; border: 1px solid var(--linha); background: var(--card);
+  transition: transform 0.32s var(--ease), border-color 0.26s;
+}
+.proj:hover .proj__sh { transform: translateY(-6px); border-color: rgba(255,255,255,0.4); }
+.proj__sh span { color: rgba(255,255,255,0.3); }
+
+/* ---------- dúvidas ---------- */
+.faq { margin-top: 56px; border-top: 1px solid var(--linha); }
+.faq details { border-bottom: 1px solid var(--linha); }
+.faq summary {
+  position: relative; padding: 24px 46px 24px 0;
+  font-size: clamp(16px, 1.7vw, 19px); font-weight: 600;
+  cursor: pointer; list-style: none; transition: opacity 0.22s;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary:hover { opacity: 0.66; }
+.faq summary::after {
+  content: ""; position: absolute; right: 8px; top: 50%;
+  width: 11px; height: 11px;
+  border-right: 1.8px solid var(--branco); border-bottom: 1.8px solid var(--branco);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.3s var(--ease);
+}
+.faq details[open] summary::after { transform: translateY(-20%) rotate(-135deg); }
+
+/* abertura animada: grid 0fr → 1fr anima a altura sem saber o tamanho.
+   O JS segura o atributo [open] durante o fechamento, senão o conteúdo
+   sumiria de uma vez e a animação não apareceria. */
+.faq__corpo {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.42s var(--ease), opacity 0.32s var(--ease);
+  opacity: 0;
+}
+.faq__corpo > div { overflow: hidden; }
+.faq details.is-aberto .faq__corpo { grid-template-rows: 1fr; opacity: 1; }
+.faq details p { padding: 4px 46px 26px 0; font-size: 16px; line-height: 1.66; color: var(--cinza); }
+
+/* ---------- cta final ---------- */
+.cta {
+  position: relative;
+  padding: 132px 0 140px;
+  background: radial-gradient(64% 120% at 50% 100%, rgba(156, 78, 255, 0.10), transparent 68%), var(--preto);
+  border-top: 1px solid var(--linha);
+}
+.cta .shiny { margin-top: 34px; }
+
+/* ---------- rodapé ---------- */
+.rodape { border-top: 1px solid var(--linha); background: var(--preto); }
+.rodape__in {
+  padding-top: 34px; padding-bottom: 34px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 18px; flex-wrap: wrap;
+}
+.rodape__in p { font-size: 13px; color: rgba(255,255,255,0.46); }
+
+/* ---------- entrada ---------- */
+.js .rv {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+  transition-delay: calc(var(--d, 0) * 90ms);
+}
+.js .rv.is-in { opacity: 1; transform: none; }
+
+/* ==================================================================
+   RESPONSIVO
+   ================================================================== */
+@media (max-width: 980px) {
+  .grid-port { grid-template-columns: repeat(2, 1fr); }
+  .serv, .depo { grid-template-columns: 1fr; gap: 32px; }
+  .serv--inv .serv__tx, .serv--inv .serv__img,
+  .depo--inv .depo__foto, .depo--inv .depo__tx { order: 0; }
+  .serv__img, .depo__foto { aspect-ratio: 16 / 10; }
+  .marquee-capsula { border-radius: 60px; margin-left: 20px; margin-right: 20px; }
+  .expert { grid-template-columns: 1fr; }
+  .expert__foto { min-height: 420px; border-right: 0; border-bottom: 1px solid var(--linha); }
+  .expert__tx { padding: 56px 24px 72px; max-width: 100%; }
+}
+
+@media (max-width: 760px) {
+  :root { --nav-h: 72px; }
+  .nav__menu, .nav__in > .shiny { display: none; }
+  .burger { display: flex; }
+  .nav { background: rgba(0,0,0,0.55); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+
+  .hero { min-height: auto; padding: calc(var(--nav-h) + 90px) 0 90px; }
+  .blur-bar { height: 130px; }
+  .sec { padding: 78px 0; }
+  .serv { padding: 28px; }
+  .depo { padding: 40px 0; }
+  .grid-port { grid-template-columns: 1fr; }
+  .cta { padding: 92px 0 96px; }
+  .kicker { margin-bottom: 38px; }
+  .marquee-capsula { margin-top: 44px; padding: 18px 0; }
+  .expert__foto { min-height: 300px; }
+  .expert__tx { padding: 44px 20px 60px; }
+  .sec__titulo { margin-bottom: 40px; }
+  .serv__rotulo { font-size: 11px; }
+  .faq summary { padding: 20px 40px 20px 0; }
+  .faq details p { padding-right: 40px; }
+  /* o botão fica menor e a volta da luz acelera, como no original */
+  .shiny { --duracao: 3s; --sombra: 2px; padding: 14px 24px; }
+}
+
+/* o backdrop-filter empilhado é caro; em telas pequenas o navegador
+   às vezes engasga, então a barra fica com menos camadas */
+@media (max-width: 560px) {
+  .blur-4, .blur-5, .blur-6 { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .rv { opacity: 1; transform: none; transition: none; }
+  .marquee__linha { animation: none; }
+  .noise { animation: none; }
+  .shiny { animation: none; }
+  .selecionado { transition: none; --bg-position: -100%; }
+}
